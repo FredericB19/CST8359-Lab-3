@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>Welcome to my @ViewBag.Title page!</h1>
+        My name is Frederic Bridy
+        <br />
+        <br />
+        @Html.ActionLink("Home", "Index", "Home") 
+        @Html.ActionLink("Show the song!", "Razor", "Home") 
+        @Html.ActionLink("Persons", "CreatePerson", "Home")
+        @Html.ActionLink("Error", "Error", "Home")
+
+    </header>
+    <div class="content">
+        @RenderBody()
+    </div>
+    <footer>
+        Layout serves as a template that you can use on other pages without the need to rewrite the same piece of code.<br />
+        The entire point of utilizing folders is to ensure you are following the ASP.NET MVC convention. Different folders are for different kinds of files and as such, it makes it easier to stay organized.
+    </footer>
+</body>
+</html>

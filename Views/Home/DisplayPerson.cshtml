@@ -1,0 +1,74 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewBag.Title = "DisplayPerson - Lab3";
+
+    string firstName = Context.Session.GetString("firstName");
+    string lastName = Context.Session.GetString("lastName");
+    string age = Context.Session.GetString("age");
+    string emailAddress = Context.Session.GetString("emailAddress");
+    string dateOfBirth = Context.Session.GetString("dateOfBirth");
+    string description = Context.Session.GetString("description");
+}
+
+@if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(age) || string.IsNullOrEmpty(emailAddress) || string.IsNullOrEmpty(dateOfBirth) || string.IsNullOrEmpty(description))
+{
+    <p>
+        Error - You left a field empty.
+    </p>
+}
+else
+{
+    <h1>Your Favorite Person</h1>
+    <table>
+        <tr>
+            <td>
+                First Name:
+            </td>
+            <td>
+                @firstName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Last Name:
+            </td>
+            <td>
+                @lastName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Age:
+            </td>
+            <td>
+                @age
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email Address:
+            </td>
+            <td>
+                @emailAddress
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Date of Birth:
+            </td>
+            <td>
+                @dateOfBirth
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description:
+            </td>
+            <td>
+                @description
+            </td>
+        </tr>
+    </table>
+}
+

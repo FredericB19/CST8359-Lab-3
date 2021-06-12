@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    ViewBag.Title = "Count - Lab3";
+
+    string num = @Context.Session.GetString("bottles");
+    int numBottles = int.Parse(num);
+}
+
+<input type="button" value="Play Again" onclick="window.location= '@Url.Action( "Razor", "Home")'" />
+<br />
+
+@for (int i = numBottles; i >= 0; i--)
+{
+    int temp = i - 1;
+    @if (i > 1)
+    {
+        <p>
+            @i green bottles hanging on the wall, <br />
+            @i green bottles hanging on the wall, <br />
+            And if one green bottle should accidentally fall, <br />
+            There'll be @temp green bottles hanging on the wall <br />
+        </p>
+    }
+    else if (i == 1)
+    {
+        <p>
+            @i green bottles hanging on the wall, <br />
+            @i green bottles hanging on the wall, <br />
+            And if one green bottle should accidentally fall, <br />
+            There'll be no green bottles hanging on the wall <br />
+        </p>
+    }
+    else if (i == 0)
+    {
+        <p>
+            There is no green bottle standing on the wall.
+        </p>
+    }
+}
